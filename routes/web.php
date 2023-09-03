@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ScreenComponent;
 use App\Livewire\SlotComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 /* Livewire Component */
-Route::get('/',SlotComponent::class)->name('livewire.slot');
+Route::get('/', ScreenComponent::class)->name('livewire.screen');
+Route::get('/book-seats/{screen}', SlotComponent::class)->name('livewire.slot');

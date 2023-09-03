@@ -16,6 +16,6 @@ class BookedSlot extends Model
      */
     protected $fillable = [
         'screen_id',
-        'slot_id'
+        'slot',
     ];
 }

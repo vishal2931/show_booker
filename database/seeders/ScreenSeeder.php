@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Screen;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ScreenSeeder extends Seeder
@@ -16,20 +15,20 @@ class ScreenSeeder extends Seeder
         $data = [
             [
                 'name' => __('Screen 1'),
-                'created_at' => now()
+                'created_at' => now(),
             ],
             [
                 'name' => __('Screen 2'),
-                'created_at' => now()
+                'created_at' => now(),
             ],
             [
                 'name' => __('Screen 3'),
-                'created_at' => now()
+                'created_at' => now(),
             ],
             [
                 'name' => __('Screen 4'),
-                'created_at' => now()
-            ]
+                'created_at' => now(),
+            ],
         ];
 
         Screen::insert($data);
