@@ -30,7 +30,6 @@ class SlotComponent extends Component
     public function save()
     {
         $this->validate();
-
         $data = [];
         collect($this->slots)->each(function($value) use(&$data){
             

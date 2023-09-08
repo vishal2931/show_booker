@@ -17,7 +17,7 @@
                                         </label>
                                     @else
                                         <input wire:model.live='slots' type="checkbox" id="seat-{{ $row }}{{ $loop->iteration }}" class="absolute opacity-0 w-full h-full cursor-pointer hidden peer" value="{{ $element }}{{ $row }}">
-                                        <label for="seat-{{ $row }}{{ $loop->iteration }}" class="h-10 w-10 relative border-green-400 border rounded-md transform hover:scale-125 hover:bg-green-400 hover:border-white transition-transform flex justify-center items-center peer-checked:bg-green-400 cursor-pointer">
+                                        <label for="seat-{{ $row }}{{ $loop->iteration }}" class="text-gray-700 h-10 w-10 relative border-green-400 border rounded-md transform hover:scale-125 hover:bg-green-400 hover:border-white transition-transform flex justify-center items-center peer-checked:bg-green-400 cursor-pointer">
                                             {{ $element }}{{ $row }}
                                         </label>
                                     @endif
@@ -35,11 +35,12 @@
                 </div>
                 <!-- Book Button -->
                 <div class="mt-6 text-center">
-                    <button class="bg-cyan-400 text-white px-6 py-3 rounded-md hover:bg-cyan-500 focus:outline-none focus:ring focus:ring-cyan-300 focus:ring-opacity-50 disabled:bg-cyan-200" type="submit" {{ count($slots) == 0 ? 'disabled' : '' }}>
+                    <button class="bg-cyan-400 text-white px-6 py-3 rounded-md hover:bg-cyan-500 focus:outline-none focus:ring focus:ring-cyan-300 focus:ring-opacity-50 disabled:bg-cyan-200" type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"  {{ count($slots) == 0 ? 'disabled' : '' }}>
                         {{ __('Book Tickets') }}
                     </button>
                 </div>
             </div>
+            <x-booking-confirmation-modal-component wire:click='save'/> 
         </form>
     </div>
 </div>
