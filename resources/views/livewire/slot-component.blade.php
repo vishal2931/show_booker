@@ -35,12 +35,19 @@
                 </div>
                 <!-- Book Button -->
                 <div class="mt-6 text-center">
-                    <button class="bg-cyan-400 text-white px-6 py-3 rounded-md hover:bg-cyan-500 focus:outline-none focus:ring focus:ring-cyan-300 focus:ring-opacity-50 disabled:bg-cyan-200" type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"  {{ count($slots) == 0 ? 'disabled' : '' }}>
+                    <button class="bg-cyan-400 text-white px-6 py-3 rounded-md hover:bg-cyan-500 focus:outline-none focus:ring focus:ring-cyan-300 focus:ring-opacity-50 disabled:bg-cyan-200" type="button" onclick="$openModal('simpleModal')"  {{ count($slots) == 0 ? 'disabled' : '' }}>
                         {{ __('Book Tickets') }}
                     </button>
                 </div>
             </div>
-            <x-booking-confirmation-modal-component wire:click='save'/> 
+            <x-booking-confirmation-modal-component wire:click='save'/>
         </form>
     </div>
 </div>
+<script>
+    document.addEventListener('livewire:initialized', () => {
+       @this.on('ticket-booked', (event) => {
+            
+       });
+    });
+</script>

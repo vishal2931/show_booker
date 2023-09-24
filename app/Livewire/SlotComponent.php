@@ -13,7 +13,7 @@ class SlotComponent extends Component
     #[Rule('required', message: 'Please select at least one seat')]
     public $slots = [];
 
-    public $screen,$booked_slots;
+    public $screen,$booked_slots,$simpleModal;
 
 
     public function mount(Screen $screen)
@@ -31,17 +31,24 @@ class SlotComponent extends Component
     {
         $this->validate();
         $data = [];
-        collect($this->slots)->each(function($value) use(&$data){
-            
-            $data[] = [
-                'screen_id' => $this->screen->id,
-                'slot' => $value,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
+        $book_slots_id = $this->booked_slots->pluck('slot')->toArray();
+
+        collect($this->slots)->each(function($value) use(&$data,$book_slots_id){
+
+            if(!in_array($value,$book_slots_id)) 
+            {
+                $data[] = [
+                    'screen_id' => $this->screen->id,
+                    'slot' => $value,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
+
         });
         BookedSlot::insert($data);
         $this->reset('slots');
         $this->booked_slots = BookedSlot::where('screen_id',$this->screen->id)->get();
     }
+
 }
