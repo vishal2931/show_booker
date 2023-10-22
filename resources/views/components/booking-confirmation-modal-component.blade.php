@@ -6,7 +6,7 @@
         <x-slot name="footer">
             <div class="flex justify-end gap-x-4">
                 <x-button red label="{{ __('Cancel') }}" x-on:click="close" />
-                <x-button sky label="{{ __('Confirm') }}" {{ $attributes }}/>
+                <x-button sky label="{{ __('Confirm') }}" x-on:click="close" {{ $attributes }}/>
             </div>
         </x-slot>
     </x-card>
