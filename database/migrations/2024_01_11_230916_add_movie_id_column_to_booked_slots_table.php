@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('movies', function (Blueprint $table) {
-            $table->json('screens')->after('duration');
+        Schema::table('booked_slots', function (Blueprint $table) {
+            $table->foreignId('movie_id')->after('screen_id')->references('id')->on('movies')->onDelete('restrict');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('the_movies', function (Blueprint $table) {
-            $table->removeColumn('screens');
+        Schema::table('booked_slots', function (Blueprint $table) {
+            $table->removeColumn('movie_id');
         });
     }
 };

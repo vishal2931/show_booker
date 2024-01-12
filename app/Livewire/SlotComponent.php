@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\BookedSlot;
+use App\Models\Movie;
 use App\Models\Screen;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -13,16 +14,21 @@ class SlotComponent extends Component
     #[Rule('required', message: 'Please select at least one seat')]
     public $slots = [];
 
-    public $screen;
+    public Screen $screen;
+
+    public Movie $movie;
 
     public $booked_slots;
 
     public $simpleModal;
 
-    public function mount(Screen $screen)
+    public function mount(Movie $movie, Screen $screen)
     {
         $this->screen = $screen;
-        $this->booked_slots = BookedSlot::where('screen_id', $screen->id)->get();
+        $this->movie = $movie;
+
+        $this->booked_slots = BookedSlot::where(['screen_id' => $screen->id, 'movie_id' => $movie->id])->get();
+
     }
 
     public function render()
@@ -41,6 +47,7 @@ class SlotComponent extends Component
             if (! in_array($value, $book_slots_id)) {
                 $data[] = [
                     'screen_id' => $this->screen->id,
+                    'movie_id' => $this->movie->id,
                     'slot' => $value,
                     'created_at' => now(),
                     'updated_at' => now(),

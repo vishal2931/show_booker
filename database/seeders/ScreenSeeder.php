@@ -14,19 +14,19 @@ class ScreenSeeder extends Seeder
     {
         $data = [
             [
-                'name' => __('Screen 1'),
+                'name' => 'Screen 1',
                 'created_at' => now(),
             ],
             [
-                'name' => __('Screen 2'),
+                'name' => 'Screen 2',
                 'created_at' => now(),
             ],
             [
-                'name' => __('Screen 3'),
+                'name' => 'Screen 3',
                 'created_at' => now(),
             ],
             [
-                'name' => __('Screen 4'),
+                'name' => 'Screen 4',
                 'created_at' => now(),
             ],
         ];

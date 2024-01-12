@@ -30,7 +30,7 @@ class MovieResource extends Resource
                 TextInput::make('type')->required()->maxLength(255),
                 DatePicker::make('release_date')->format('Y-m-d')->required()->after(today()),
                 TextInput::make('duration')->required()->maxLength(255),
-                Select::make('screens')->options(Screen::all()->pluck('name','id'))->multiple()->searchable()->required(),
+                Select::make('screens')->options(Screen::all()->pluck('name', 'id'))->multiple()->searchable()->required(),
                 FileUpload::make('image')
                     ->image()
                     ->required()
@@ -46,7 +46,11 @@ class MovieResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')->height(80)->width(80),
+                ImageColumn::make('image')
+                ->height(80)
+                ->width(80)
+                ->defaultImageUrl(asset('images/placeholder.jpg'))
+                ->circular(),
                 TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('type')->searchable()->sortable(),
                 TextColumn::make('release_date')->searchable()->sortable(),

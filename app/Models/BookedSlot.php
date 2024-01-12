@@ -15,6 +15,7 @@ class BookedSlot extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'movie_id',
         'screen_id',
         'slot',
     ];

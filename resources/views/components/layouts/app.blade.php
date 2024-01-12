@@ -8,7 +8,7 @@
         <title>{{ $title ?? env('APP_NAME') }}</title>
     </head>
     <body>
-        <div class="bg-gray-600 min-h-screen flex items-center justify-center">
+        <div class="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 min-h-screen flex items-center justify-center">
             <div class="h-full w-full">
                 <div class="text-center text-white text-3xl font-bold pt-3">
                     {{ __('Show Booker') }}

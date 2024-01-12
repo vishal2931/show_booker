@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Movie;
 use App\Models\Screen;
 use Livewire\Component;
 
@@ -9,9 +10,12 @@ class ScreenComponent extends Component
 {
     public $screens;
 
-    public function mount()
+    public Movie $movie;
+
+    public function mount(Movie $movie)
     {
         $this->screens = Screen::get();
+        $this->movie = $movie;
     }
 
     public function render()
