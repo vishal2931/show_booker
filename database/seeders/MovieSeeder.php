@@ -17,7 +17,7 @@ class MovieSeeder extends Seeder
             [
                 'name' => 'Avengers : End Game',
                 'type' => 'Action',
-                'release_date' => fake()->dateTimeBetween('now','+1 Year')->format('Y-m-d'),
+                'release_date' => fake()->dateTimeBetween('now', '+1 Year')->format('Y-m-d'),
                 'duration' => fake()->numberBetween(1, 3),
                 'screens' => json_encode(Screen::inRandomOrder()->limit(2)->pluck('id'), true),
                 'created_at' => now(),
@@ -25,7 +25,7 @@ class MovieSeeder extends Seeder
             [
                 'name' => 'Avengers : Infinity War',
                 'type' => 'Action & Thriller',
-                'release_date' => fake()->dateTimeBetween('now','+1 Year')->format('Y-m-d'),
+                'release_date' => fake()->dateTimeBetween('now', '+1 Year')->format('Y-m-d'),
                 'duration' => fake()->numberBetween(1, 3),
                 'screens' => json_encode(Screen::inRandomOrder()->limit(2)->pluck('id'), true),
                 'created_at' => now(),
@@ -33,7 +33,7 @@ class MovieSeeder extends Seeder
             [
                 'name' => 'Daredevils',
                 'type' => 'Thriller',
-                'release_date' => fake()->dateTimeBetween('now','+1 Year')->format('Y-m-d'),
+                'release_date' => fake()->dateTimeBetween('now', '+1 Year')->format('Y-m-d'),
                 'duration' => fake()->numberBetween(1, 3),
                 'screens' => json_encode(Screen::inRandomOrder()->limit(2)->pluck('id'), true),
                 'created_at' => now(),
@@ -41,7 +41,7 @@ class MovieSeeder extends Seeder
             [
                 'name' => 'Cars',
                 'type' => 'Comedy',
-                'release_date' => fake()->dateTimeBetween('now','+1 Year')->format('Y-m-d'),
+                'release_date' => fake()->dateTimeBetween('now', '+1 Year')->format('Y-m-d'),
                 'duration' => fake()->numberBetween(1, 3),
                 'screens' => json_encode(Screen::inRandomOrder()->limit(2)->pluck('id'), true),
                 'created_at' => now(),

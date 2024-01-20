@@ -47,10 +47,10 @@ class MovieResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image')
-                ->height(80)
-                ->width(80)
-                ->defaultImageUrl(asset('images/placeholder.jpg'))
-                ->circular(),
+                    ->height(80)
+                    ->width(80)
+                    ->defaultImageUrl(asset('images/placeholder.jpg'))
+                    ->circular(),
                 TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('type')->searchable()->sortable(),
                 TextColumn::make('release_date')->searchable()->sortable(),
