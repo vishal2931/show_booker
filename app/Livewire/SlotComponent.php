@@ -57,6 +57,6 @@ class SlotComponent extends Component
         });
         BookedSlot::insert($data);
         $this->reset('slots');
-        $this->booked_slots = BookedSlot::where('screen_id', $this->screen->id)->get();
+        $this->booked_slots = BookedSlot::where(['screen_id' => $this->screen->id, 'movie_id' => $this->movie->id])->get();
     }
 }
