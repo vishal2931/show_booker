@@ -20,6 +20,10 @@ Follow these steps to get Show Booker up and running on your local machine:
 
     ```bash
     php artisan migrate
+    
+    php artisan db:seed
+
+    php artisan key:generate
 4. **Create Filament admin user:**
 
     ```bash
